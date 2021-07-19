@@ -1,5 +1,7 @@
 # Starlink-Grafana-Dashboard
-Grafana Dashboard for Starlink
+Grafana Dashboard for Starlink. Data is gathered using Sparky8512's Starlink GRPC Tools (Found here: https://github.com/sparky8512/starlink-grpc-tools). That utility imports metrics into InfluxDB at a determined interval (based on the paramenters used). This Grafana dashboard presents those metrics in a visual way. 
+
+This dashboard was originally based off of Neurocis's Grafana Dashboard located here: https://github.com/sparky8512/starlink-grpc-tools/blob/main/GrafanaDashboard%20-%20Starlink%20Statistics.json
 
 ![Grafana-Starlink-Dashboard-Screenshot](https://user-images.githubusercontent.com/6382844/126184441-a308ba83-20e5-4ff1-812d-f1971c59971d.PNG)
 
