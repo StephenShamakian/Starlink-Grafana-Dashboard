@@ -1,0 +1,3142 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 45,
+  "iteration": 1626707648726,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "state"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current State",
+      "type": "stat"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 4,
+        "y": 0
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "value"
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "software_version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current Software Version",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Online"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#73BF69",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.ping_stats.Obstructed + No Satellites + Beta Downtime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Beta Downtime"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.ping_stats.No Satellites Count"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "No Satellites"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.ping_stats.Obstructed Count"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Obstructed"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 5,
+        "x": 10,
+        "y": 0
+      },
+      "id": 10,
+      "interval": null,
+      "links": [],
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "values": [
+            "value",
+            "percent"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "alias": "Online",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT abs((last(\"uptime\") - (last(\"uptime\")-43200))) FROM /^$TBL_STATS$/ WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "uptime"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "- 181000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "spacex.starlink.user_terminal.ping_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count_full_obstructed_ping_drop"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "Obstructed Count"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "count_full_unscheduled_ping_drop"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "No Satellites Count"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "spacex.starlink.user_terminal.ping_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT abs(mean(\"count_full_ping_drop\") - (mean(\"count_full_obstructed_ping_drop\") + mean(\"count_full_unscheduled_ping_drop\"))) AS \"Obstructed + No Satellites + Beta Downtime\" FROM \"spacex.starlink.user_terminal.ping_stats\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count_full_ping_drop"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "Obstructed + No Satellites + Beta Downtime"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Obstruction Details (last 12 hours)",
+      "type": "piechart"
+    },
+    {
+      "bgColor": "rgb(192, 4, 4)",
+      "cacheTimeout": null,
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 15,
+        "y": 0
+      },
+      "id": 19,
+      "links": [],
+      "pluginVersion": "7.5.6",
+      "radarSettings": {
+        "animationDurationMs": "0",
+        "aspectRatio": 1.8,
+        "autoScale": true,
+        "drawTicksBackground": false,
+        "fontColor": "rgb(255, 255, 255)",
+        "fontSize": "10",
+        "gridColor": "rgba(90, 84, 84, 0.15)",
+        "ignoreTimeInfluxDB": true,
+        "legendType": "right",
+        "limitAspectRatio": true,
+        "scaleMax": "100",
+        "scaleMin": 0,
+        "scaleStep": "0",
+        "seriesAlias": ""
+      },
+      "targets": [
+        {
+          "alias": "0° North",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "0° North",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_0"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "* 100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "0° North"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "30°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "30°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "30°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "60°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "60°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "60°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "90° East",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "90° East",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_3"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "90° East"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "120°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "120°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_4"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "120°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "150°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "150°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_5"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "150°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "180° South",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "180° South",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_6"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "180° South"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "210°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "210°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_7"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "210°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "240°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "240°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_8"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "240°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "270° West",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "270° West",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_9"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "270° West"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "300°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "300°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_10"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "300°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "330°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "330°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_11"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "330°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeShift": null,
+      "title": "Obstruction Directions",
+      "transformations": [],
+      "type": "snuids-radar-panel"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 15,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 40
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 20,
+      "links": [],
+      "options": {
+        "displayMode": "basic",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "alias": "0° North",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "0° North",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_0"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "* 100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "0° North"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "30°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "30°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "30°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "60°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "60°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "60°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "90° East",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "90° East",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_3"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "90° East"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "120°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "120°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_4"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "120°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "150°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "150°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_5"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "150°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "180° South",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "180° South",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_6"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "180° South"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "210°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "210°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_7"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "210°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "240°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "240°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_8"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "240°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "270° West",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "270° West",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_9"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "270° West"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "300°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "300°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_10"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "300°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "330°",
+          "groupBy": [],
+          "hide": false,
+          "limit": "1",
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "330°",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "raw_wedges_fraction_obstructed_11"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*100"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "330°"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeShift": null,
+      "title": "Obstruction Direction Percentages",
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "uptime"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 150,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 4,
+        "y": 3
+      },
+      "id": 8,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pop_ping_latency_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Current Latency",
+      "type": "gauge"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 9,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 4
+              },
+              {
+                "color": "green",
+                "value": 7
+              }
+            ]
+          },
+          "unit": "SNR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 7,
+        "y": 3
+      },
+      "id": 13,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "snr"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Current SNR",
+      "type": "gauge"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.downlink_throughput_bps"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Download"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.uplink_throughput_bps"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Upload"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "downlink_throughput_bps"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "uplink_throughput_bps"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current Throughput",
+      "type": "stat"
+    },
+    {
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "alias": "Top Download Speed:",
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "downlink_throughput_bps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Top Upload Speed:",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "uplink_throughput_bps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Max Speeds Seen (In given time range)",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 8,
+        "x": 8,
+        "y": 10
+      },
+      "header_js": "{}",
+      "id": 22,
+      "method": "iframe",
+      "mode": "html",
+      "params_js": "",
+      "pluginVersion": "7.5.6",
+      "request": "http",
+      "responseType": "text",
+      "showErrors": true,
+      "showTime": false,
+      "showTimeFormat": "LTS",
+      "showTimePrefix": null,
+      "showTimeValue": "request",
+      "skipSameURL": true,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "templateResponse": true,
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Starlink Satellite Tracking Map",
+      "type": "ryantxu-ajax-panel",
+      "url": "https://satellitemap.space/",
+      "withCredentials": false
+    },
+    {
+      "aliasColors": {
+        "Drop Rate": "dark-red",
+        "Obstructed": "blue",
+        "Obstruction?": "rgb(255, 255, 255)",
+        "Percent Obstructed": "super-light-red",
+        "Ping Drop Rate": "dark-red",
+        "Satellites Available?": "rgb(33, 94, 27)",
+        "Scheduled": "green",
+        "Scheduled (Is there Satellites?)": "dark-green",
+        "Scheduled (Satellites Available?)": "rgb(35, 99, 28)",
+        "spacex.starlink.user_terminal.history.Obstructed": "dark-purple",
+        "spacex.starlink.user_terminal.status.Drop Rate": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-starlinkstats",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Event"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.history.Drop Rate"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Ping Drop Rate"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.history.Scheduled"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Satellites Available?"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.history.Obstructed"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Obstruction?"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.6",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1053",
+          "alias": "Ping Drop Rate",
+          "fill": 6,
+          "transform": "negative-Y",
+          "zindex": 1
+        },
+        {
+          "$$hashKey": "object:496",
+          "alias": "Satellites Available?",
+          "fill": 5,
+          "transform": "negative-Y",
+          "zindex": -3
+        },
+        {
+          "$$hashKey": "object:695",
+          "alias": "Obstruction?",
+          "fill": 8,
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [],
+          "hide": true,
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pop_ping_drop_rate"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Drop Rate"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [],
+          "hide": false,
+          "measurement": "spacex.starlink.user_terminal.history",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pop_ping_drop_rate"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Drop Rate"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "scheduled"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Scheduled"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "obstructed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Obstructed"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Starlink Connection Drop Rate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1035",
+          "format": "Event",
+          "label": "Drop Rate",
+          "logBase": 1,
+          "max": null,
+          "min": "-1",
+          "show": false
+        },
+        {
+          "$$hashKey": "object:1036",
+          "format": "percent",
+          "label": "Percent Obstructed",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Download (Mbps)": "green",
+        "Upload (Mbps)": "yellow"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-starlinkstats",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "binbps"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.bps Down"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Download"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.bps Up"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Upload"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideZero": false,
+        "max": true,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.6",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "downlink_throughput_bps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "bps Down"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "uplink_throughput_bps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "bps Up"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Throughput Over Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1099",
+          "format": "binbps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1100",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Ping Latency": "semi-dark-orange",
+        "SNR": "blue",
+        "spacex.starlink.user_terminal.status.Drop Rate": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-starlinkstats",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.Ping Latency"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Ping Latency"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "spacex.starlink.user_terminal.status.SNR"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "SNR"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 17
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.6",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:938",
+          "alias": "SNR",
+          "yaxis": 1,
+          "zindex": -3
+        },
+        {
+          "$$hashKey": "object:945",
+          "alias": "Ping Latency",
+          "yaxis": 2,
+          "zindex": 3
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "snr"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "*10"
+                ],
+                "type": "math"
+              },
+              {
+                "params": [
+                  "SNR"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "pop_ping_latency_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Ping Latency"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Ping Latency vs. SNR",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:893",
+          "format": "SNR",
+          "label": "SNR",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:894",
+          "format": "ms",
+          "label": "Latency",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "InfluxDB-starlinkstats",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": null,
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "True",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "text": "False",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Obstructed"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "color"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bad Location"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Temp Throttled"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 121
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Temp Shutdown"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 136
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Motors Stuck"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 143
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 191
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Software Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 400
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hardware Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Mast not Vertical"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Slow Ethernet"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time (last)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeAsUS"
+              },
+              {
+                "id": "custom.align",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 6,
+      "interval": null,
+      "links": [],
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time (last)"
+          }
+        ]
+      },
+      "pluginVersion": "7.5.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "hide": false,
+          "measurement": "/^$TBL_STATS$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"state\" AS \"State\", \"currently_obstructed\" AS \"Obstructed\", \"alert_unexpected_location\" AS \"Bad Location\", \"alert_thermal_throttle\" AS \"Temp Throttled\", \"alert_thermal_shutdown\" AS \"Temp Shutdown\", \"alert_motors_stuck\" AS \"Motors Stuck\", \"alert_mast_not_near_vertical\" AS \"Mast not Vertical\", \"alert_slow_ethernet_speeds\" AS \"Slow Ethernet\", \"software_version\" AS \"Software Version\", \"hardware_version\" AS \"Hardware Version\" FROM /^$TBL_STATS$/ WHERE $timeFilter",
+          "queryType": "randomWalk",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "state"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "State"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "currently_obstructed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Obstructed"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_unexpected_location"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Bad Location"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_thermal_throttle"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Temp Throttled"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_thermal_shutdown"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Temp Shutdown"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_motors_stuck"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Motors Stuck"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "software_version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Software Version"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "hardware_version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Hardware Version"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_mast_not_near_vertical"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Mast not Vertical"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "alert_slow_ethernet_speeds"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "Slow Ethernet"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Alerts & Versions",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Bad Location": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Hardware Version": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Mast not Vertical": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Motors Stuck": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Obstructed": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Slow Ethernet": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Software Version": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "State": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Temp Shutdown": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Temp Throttle": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Temp Throttled": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Thermal Shutdown": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Thermal Throttle": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Time": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Wrong Location": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "label": "InfluxDB DataSource",
+        "name": "DS_INFLUXDB",
+        "query": "InfluxDB-starlinkstats",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "label": "Table name for Statistics",
+        "name": "TBL_STATS",
+        "query": "spacex.starlink.user_terminal.status",
+        "skipUrlSync": false,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Starlink Statistics",
+  "uid": "ymkHwLaMz",
+  "version": 80
+}
